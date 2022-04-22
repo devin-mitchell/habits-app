@@ -21,6 +21,12 @@ defmodule HabitsWeb.Router do
     # get "/:name", PageController, :say_hi
   end
 
+  scope "/habits", HabitsWeb do
+    pipe_through :api
+
+    post "/", HabitController, :create
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", HabitsWeb do
   #   pipe_through :api
